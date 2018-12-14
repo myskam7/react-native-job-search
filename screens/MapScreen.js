@@ -35,8 +35,10 @@ import * as actions from '../actions/index';
     }
 
      onButtonPress = () => {
-        this.props.fetchJobs(this.state.region)
-     }
+        this.props.fetchJobs(this.state.region, () => {
+            this.props.navigation.navigate('Deck')
+        })
+     };
 
     render() {
         if(!this.state.mapLoaded){
