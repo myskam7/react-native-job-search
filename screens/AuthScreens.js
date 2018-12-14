@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, AsyncStorage} from 'react-native';
+import { connect } from 'react-redux';
 
-export default class AuthScreens extends Component {
+import * as actions from '../actions/index';
+
+ class AuthScreens extends Component {
+
+     static navigationOptions = {
+         tabBarVisible: false
+     }
+
+     componentDidMount() {
+         this.props.facebookLogin();
+         AsyncStorage.removeItem('fb_token');
+
+     }
+
     render() {
         return(
             <View>
@@ -13,3 +27,6 @@ export default class AuthScreens extends Component {
         )
     }
 }
+
+export default connect(null, actions)(AuthScreens);
+

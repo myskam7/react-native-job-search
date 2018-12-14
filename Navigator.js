@@ -6,12 +6,31 @@ import MapScreen from './screens/MapScreen';
 import ReviewStack from './screens/ReviewScreen';
 import SettingsScreen from './screens/SettingsScreen';
 
-const RevSet = createStackNavigator({ Review: ReviewStack, Settings: SettingsScreen })
+
+
+
+
+const RevSet = createStackNavigator({ Review: ReviewStack, Settings: SettingsScreen });
 const MainStack = createBottomTabNavigator({Map: MapScreen, Deck: DeckScreen, Review: RevSet });
-const AppStack = createBottomTabNavigator({ Auth: AuthScreen,  Welcome: WelcomeScreen, Main: MainStack });
+const WelcomeStack = createBottomTabNavigator({ Welcome: WelcomeScreen });
+const AuthStack = createBottomTabNavigator({ Auth: AuthScreen });
 
 
 
-const Nav = createAppContainer(AppStack);
+
+const Nav = createAppContainer(createSwitchNavigator(
+    {
+        Welcome: WelcomeStack,
+        Main: MainStack,
+        Auth: AuthStack,
+
+    },
+    {
+
+
+    }
+
+
+));
 
 export default Nav;
