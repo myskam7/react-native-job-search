@@ -22,7 +22,7 @@ class Slides extends Component {
     renderSlides = () => {
         return this.props.data.map((slide, i) => {
            return (
-               <View style={styles.viewStyle} key={slide.text}>
+               <View backgroundColor={slide.color} style={styles.viewStyle} key={slide.text}>
                    <Text style={styles.textStyle}>{slide.text}</Text>
                    {this.renderLastSlide(i)}
                </View>
@@ -45,11 +45,14 @@ const styles ={
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        width: SCREEN_WIDTH
+        width: SCREEN_WIDTH,
+
+
 
     },
     textStyle: {
-        fontSize: 30
+        fontSize: 30,
+        color: '#ffffff'
     },
     buttonStyle : {
         backgroundColor: '#0288D1',

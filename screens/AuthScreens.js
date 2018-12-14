@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage} from 'react-native';
+import { View, Text, AsyncStorage, Platform} from 'react-native';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions/index';
@@ -7,7 +7,10 @@ import * as actions from '../actions/index';
  class AuthScreens extends Component {
 
      static navigationOptions = {
-         tabBarVisible: false
+         tabBarVisible: false,
+         styles: {
+             marginTop: Platform.OS === 'android' ? 24 : 0
+         }
      }
 
      componentDidMount() {
@@ -32,7 +35,7 @@ import * as actions from '../actions/index';
 
     render() {
         return(
-            <View>
+            <View style={AuthScreens.navigationOptions.styles}>
                 <Text>AuthScreen</Text>
                 <Text>AuthScreen</Text>
                 <Text>AuthScreen</Text>
