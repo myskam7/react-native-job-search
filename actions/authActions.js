@@ -9,7 +9,7 @@ import { Facebook } from 'expo';
 
 export const facebookLogin = () => {
   return async dispatch => {
-      let token = await AsyncStorage.getItem('fb_token');
+      let token = await AsyncStorage.clear('fb_token');
 
       if(token) {
           // Dispatch action confirming user is logged in

@@ -16,7 +16,7 @@ import * as actions from '../actions/index';
      componentDidMount() {
          this.props.facebookLogin();
          this.onAuthComplete(this.props);
-         AsyncStorage.removeItem('fb_token');
+         // AsyncStorage.removeItem('fb_token');
 
      }
 
@@ -36,10 +36,7 @@ import * as actions from '../actions/index';
     render() {
         return(
             <View style={AuthScreens.navigationOptions.styles}>
-                <Text>AuthScreen</Text>
-                <Text>AuthScreen</Text>
-                <Text>AuthScreen</Text>
-                <Text>AuthScreen</Text>
+
             </View>
         )
     }

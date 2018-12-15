@@ -11,7 +11,7 @@ const SWIPE_OUT_DURATION = 250;
 
 
 class Swipe extends Component {
-    static defaultProps = {  //???
+    static defaultProps = {
         onSwipeRight: () => {},
         onSwipeLeft: () => {},
         keyProp: 'id'

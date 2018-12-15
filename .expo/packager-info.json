@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 76251,
-  "expoServerNgrokUrl": "https://pi-3rm.myskam7.react-native-job-search.exp.direct",
-  "packagerNgrokUrl": "https://packager.pi-3rm.myskam7.react-native-job-search.exp.direct",
-  "ngrokPid": 76271
+  "packagerPort": 19003,
+  "packagerPid": 16794,
+  "expoServerNgrokUrl": "https://7b-5u7.myskam7.react-native-job-search.exp.direct",
+  "packagerNgrokUrl": "https://packager.7b-5u7.myskam7.react-native-job-search.exp.direct",
+  "ngrokPid": 16823
 }

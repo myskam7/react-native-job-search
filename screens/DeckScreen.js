@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Dimensions } from 'react-native';
 import { connect }  from 'react-redux';
 import { MapView } from 'expo';
 import { Card, Buttom } from 'react-native-elements';
@@ -13,18 +13,12 @@ import * as actions from '../actions/index';
      renderCard(job) {
          return(
              <Card containerStyle={styles.containerStyle} title={job.title}>
-                 <View style={{height: 100}}>
-                     {/*<MapView*/}
-                         {/*scrollEnabled={false}*/}
-                         {/*style={{flex: 1}}*/}
-                         {/*cacheEnabled={true}*/}
-                         {/*initialRegion={{ job.location}}*/}
-                     {/*>*/}
-                     {/*</MapView>*/}
+                 <View style={{ height: 100, width: 350}}>
+
                      <Image
-                         style={{width: 100, height: 100, alignItems: 'center', overflow: 'hidden'}}
-                         source={{uri: job.company_logo}}
-                     />
+                             style={styles.image}
+                             source={{uri: job.company_logo}}
+                         />
                  </View>
 
                  <View style={styles.cardWrapper}>
@@ -51,9 +45,8 @@ import * as actions from '../actions/index';
                 <Swipe
                     data={this.props.jobs}
                     renderCard={this.renderCard}
-                    onSwipeRight{job => this.props.likeJ(job)}
-                    onSwipeLeft{job => this.props.dislikeJ(job)}
                     renderNoMoreCards={this.renderNoMoreCards}
+                    onSwipeRight={job => this.props.likedJob(job)}
                     keyProp="id"
                 />
 
@@ -67,16 +60,38 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginBottom: 20,
+        marginTop: 20
     },
     containerStyle: {
         height: 600
+    },
+    image: {
+        flex: 1,
+        width: null,
+        height: null,
+        resizeMode: 'contain',
+
+    },
+    container: {
+        backgroundColor:'green',
+        flex: 1,
+    },
+    child: {
+        flex: 1,
+        backgroundColor: 'blue',
+        transform: [
+            { perspective: 850 },
+            { translateX: - Dimensions.get('window').width * 0.24 },
+            { rotateY: '60deg'},
+
+        ],
     }
 }
 
 
 
 function mapStateToProps({jobs}) {
-     return { jobs: jobs}
+     return { jobs }
 }
 
 export default connect(mapStateToProps, actions)(DeckScreen);
